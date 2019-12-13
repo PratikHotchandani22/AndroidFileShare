@@ -63,7 +63,7 @@ public class SendFile extends AppCompatActivity {
                 final String[] split = file.getPath().split(":");//split the path.
                 String filePath = split[1];//assign it to a string(your choice).
                 selectedFilePath = filePath;
-                //Log.i(TAG, "Selected File Path:" + selectedFilePath);
+
 
                 if (selectedFilePath != null && !selectedFilePath.equals("")) {
                     Toast.makeText(this, "file selected to be shared", Toast.LENGTH_SHORT).show();
@@ -73,15 +73,11 @@ public class SendFile extends AppCompatActivity {
                     // setType("image/png"); OR for jpeg: setType("image/jpeg");
                     share.setType("*/*");
 
-                    // Make sure you put example png image named myImage.png in your
                     // directory
-
-
-
                     share.putExtra(Intent.EXTRA_STREAM, selectedFileUri);
 
                     share.setPackage("com.android.bluetooth");
-                    startActivity(Intent.createChooser(share, "Share Image!"));
+                    startActivity(Intent.createChooser(share, "Share File!"));
 
                 } else {
                     Toast.makeText(this, "File can not be shared", Toast.LENGTH_SHORT).show();
